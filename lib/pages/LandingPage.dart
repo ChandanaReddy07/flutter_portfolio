@@ -1,4 +1,5 @@
 import 'package:firstapp/utils/responsive.dart';
+import 'package:firstapp/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -57,57 +58,67 @@ class LandingPage extends StatelessWidget {
             body: Center(
 
                 // if (constraints.maxWidth < 708) {
-                child: ListView(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  SizedBox(height: 12),
-                  profilepic(),
-                  SizedBox(height: 12),
-                  aboutMe(),
-                  SizedBox(height: 12),
-                  Text(
-                    "Lets have coffee somewhere...",
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/facebook.png",
-                        height: 40,
-                        width: 40,
-                      ),
-                      SizedBox(width: 12),
-                      Text("Codes with coffee")
-                    ],
-                  ),
-                  SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/instagram.png",
-                        height: 40,
-                        width: 40,
-                      ),
-                      SizedBox(width: 12),
-                      Text("A Public gallery")
-                    ],
-                  ),
-                  SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/twitter.png",
-                        height: 40,
-                        width: 40,
-                      ),
-                      SizedBox(width: 12),
-                      Text("Coffee and Tweet")
-                    ],
-                  ),
-                ]))));
+                child: SingleChildScrollView(
+              child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 12),
+                    profilepic(),
+                    SizedBox(height: 12),
+                    aboutMe(),
+                    SizedBox(height: 12),
+                    Text(
+                      "Lets have coffee somewhere...",
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 12),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/facebook.png",
+                          height: 40,
+                          width: 40,
+                        ),
+                        SizedBox(width: 12),
+                        Text("Codes with coffee")
+                      ],
+                    ),
+                    SizedBox(height: 12),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/instagram.png",
+                          height: 40,
+                          width: 40,
+                        ),
+                        SizedBox(width: 12),
+                        Text("A Public gallery")
+                      ],
+                    ),
+                    SizedBox(height: 12),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/twitter.png",
+                          height: 40,
+                          width: 40,
+                        ),
+                        SizedBox(width: 12),
+                        Text("Coffee and Tweet"),
+                      ],
+                    ),
+                    SizedBox(height: 12),
+                    ElevatedButton(
+                      child: Text("Route"),
+                      style: TextButton.styleFrom(minimumSize: Size(100, 40)),
+                      onPressed: () {
+                        Navigator.pushNamed(context, MyRoutes.homepageRoute);
+                      },
+                    )
+                  ]),
+            ))));
   }
 }

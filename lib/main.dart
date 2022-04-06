@@ -1,4 +1,5 @@
 import 'package:firstapp/pages/LandingPage.dart';
+import 'package:firstapp/pages/aboutme.dart';
 
 import 'package:firstapp/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +17,12 @@ class Myapp extends StatelessWidget {
     String name = "Codepur";
 
     return MaterialApp(
-      home: LandingPage(),
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      // routes: {
-      //   MyRoutes.loginRoute: (context) => LoginPage(),
-      //   MyRoutes.homeRoute: (context) => Homepage(),
-      // });
-    );
+        // home: LandingPage(),
+        themeMode: ThemeMode.dark,
+        darkTheme: ThemeData(brightness: Brightness.dark),
+        routes: {
+          "/": (context) => LandingPage(),
+          MyRoutes.homepageRoute: (context) => Aboutme(),
+        });
   }
 }

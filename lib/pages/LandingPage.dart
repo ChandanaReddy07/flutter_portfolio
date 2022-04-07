@@ -2,6 +2,7 @@ import 'package:firstapp/utils/responsive.dart';
 import 'package:firstapp/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class profilepic extends StatelessWidget {
   const profilepic({
@@ -34,7 +35,7 @@ class profilepic1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 250,
       width: 3000,
       padding: EdgeInsets.fromLTRB(100, 100, 10, 10),
       decoration: BoxDecoration(
@@ -43,7 +44,7 @@ class profilepic1 extends StatelessWidget {
             image: AssetImage(
               "assets/images/mybanner.jpeg",
             ),
-            fit: BoxFit.fill),
+            fit: BoxFit.cover),
       ),
     );
   }
@@ -71,6 +72,10 @@ class aboutMe extends StatelessWidget {
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
 
+  void _launchURL(String url) async {
+    if (!await launch(url)) throw 'Could not launch $url';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -86,7 +91,7 @@ class LandingPage extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(0),
               // height: 400,
               // width: 1500,
               child: new Stack(
@@ -96,13 +101,13 @@ class LandingPage extends StatelessWidget {
                   profilepic1(),
                   new Positioned(
                     // left: 150,
-                    top: 220,
+                    top: 200,
                     child: profilepic(),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 100),
+            SizedBox(height: 120),
             aboutMe(),
             SizedBox(height: 12),
             Text(
@@ -111,44 +116,83 @@ class LandingPage extends StatelessWidget {
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/facebook.png",
-                  height: 40,
-                  width: 40,
-                ),
-                SizedBox(width: 50),
-                Text("Codes with coffee")
-              ],
+            GestureDetector(
+              onTap: () => {_launchURL("https://github.com/ChandanaReddy07")},
+              child: Container(
+                  width: 500,
+                  child: Stack(alignment: Alignment.center, children: <Widget>[
+                    Container(
+                      width: 450,
+                      padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                      color: Color.fromARGB(255, 23, 18, 18),
+                      child: Container(
+                        width: 250,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              "assets/images/facebook.png",
+                              height: 40,
+                              width: 40,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "Codes with coffee",
+                      textAlign: TextAlign.center,
+                    ),
+                  ])),
             ),
             SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/instagram.png",
-                  height: 40,
-                  width: 40,
-                ),
-                SizedBox(width: 50),
-                Text("A Public gallery")
-              ],
-            ),
+            Container(
+                width: 500,
+                child: Stack(alignment: Alignment.center, children: <Widget>[
+                  Container(
+                    width: 450,
+                    padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                    color: Color.fromARGB(255, 23, 18, 18),
+                    child: Container(
+                      width: 250,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            "assets/images/instagram.png",
+                            height: 40,
+                            width: 40,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Text("A Public gallery")
+                ])),
             SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/twitter.png",
-                  height: 40,
-                  width: 40,
-                ),
-                SizedBox(width: 50),
-                Text("Coffee and Tweet"),
-              ],
-            ),
+            Container(
+                width: 500,
+                child: Stack(alignment: Alignment.center, children: <Widget>[
+                  Container(
+                    width: 450,
+                    padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                    color: Color.fromARGB(255, 23, 18, 18),
+                    child: Container(
+                      width: 250,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            "assets/images/twitter.png",
+                            height: 40,
+                            width: 40,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Text("Coffee and Tweet"),
+                ])),
             SizedBox(height: 12),
             ElevatedButton(
               child: Text("Route"),

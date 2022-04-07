@@ -19,6 +19,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
         // home: LandingPage(),
         themeMode: ThemeMode.dark,
+        debugShowCheckedModeBanner: false,
         darkTheme: ThemeData(brightness: Brightness.dark),
         routes: {
           "/": (context) => LandingPage(),

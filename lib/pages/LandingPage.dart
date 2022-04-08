@@ -1,4 +1,5 @@
-import 'package:firstapp/utils/responsive.dart';
+import 'package:firstapp/pages/inkwel.dart';
+import 'package:firstapp/utils/on_hover_button.dart';
 import 'package:firstapp/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -58,14 +59,22 @@ class aboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 100),
+        // padding: EdgeInsets.symmetric(horizontal: 50),
+
         child: Column(children: [
-          Text(
-            "- Hi! I'm Chandana🐼.\n\n",
-            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-        ]));
+      Text(
+        "Chandana Reddy🐼",
+        style: TextStyle(fontSize: 18),
+        textAlign: TextAlign.center,
+      ),
+      // Text(
+      //   "Happy, weird, austere...",
+      //   style: TextStyle(
+      //       fontSize: 10,
+      //       fontWeight: FontWeight.bold,
+      //       color: Color.fromARGB(255, 102, 98, 97)),
+      // ),
+    ]));
   }
 }
 
@@ -92,8 +101,6 @@ class LandingPage extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(0),
-              // height: 400,
-              // width: 1500,
               child: new Stack(
                 overflow: Overflow.visible,
                 alignment: Alignment.center,
@@ -109,7 +116,16 @@ class LandingPage extends StatelessWidget {
             ),
             SizedBox(height: 120),
             aboutMe(),
-            SizedBox(height: 12),
+            SizedBox(height: 10),
+            Text(
+              "Happy, weird, austere...",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 162, 164, 167)),
+            ),
+            SizedBox(height: 20),
             Text(
               "Lets have coffee somewhere...",
               textAlign: TextAlign.center,
@@ -118,89 +134,147 @@ class LandingPage extends StatelessWidget {
             SizedBox(height: 12),
             GestureDetector(
               onTap: () => {_launchURL("https://github.com/ChandanaReddy07")},
-              child: Container(
-                  width: 500,
-                  child: Stack(alignment: Alignment.center, children: <Widget>[
-                    Container(
-                      width: 450,
-                      padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
-                      color: Color.fromARGB(255, 23, 18, 18),
-                      child: Container(
-                        width: 250,
+              child: OnHover(builder: (isHovered) {
+                final color =
+                    isHovered ? Colors.grey : Color.fromARGB(255, 23, 18, 18);
+                return Container(
+                    width: 500,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child:
+                        Stack(alignment: Alignment.center, children: <Widget>[
+                      Container(
+                        width: 450,
+                        padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                        color: color,
+                        child: Container(
+                          width: 250,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                "assets/images/git2.png",
+                                height: 40,
+                                width: 40,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "Codes with coffee",
+                        textAlign: TextAlign.center,
+                      ),
+                    ]));
+              }),
+            ),
+            SizedBox(height: 12),
+            GestureDetector(
+              onTap: () =>
+                  {_launchURL("https://www.instagram.com/chandana_reddy.07/")},
+              child: OnHover(builder: (isHovered) {
+                final color =
+                    isHovered ? Colors.grey : Color.fromARGB(255, 23, 18, 18);
+                return Container(
+                    width: 500,
+                    child:
+                        Stack(alignment: Alignment.center, children: <Widget>[
+                      Container(
+                        width: 450,
+                        padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                        color: color,
+                        child: Container(
+                          width: 250,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                "assets/images/instagram.png",
+                                height: 40,
+                                width: 40,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Text("A Public gallery")
+                    ]));
+              }),
+            ),
+            SizedBox(height: 12),
+            GestureDetector(
+              onTap: () => {_launchURL("https://twitter.com/DChandanaReddy1")},
+              child: OnHover(builder: (isHovered) {
+                final color =
+                    isHovered ? Colors.grey : Color.fromARGB(255, 23, 18, 18);
+                return Container(
+                    width: 500,
+                    child:
+                        Stack(alignment: Alignment.center, children: <Widget>[
+                      Container(
+                        width: 450,
+                        padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                        color: color,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Image.asset(
-                              "assets/images/facebook.png",
+                              "assets/images/twitter.png",
                               height: 40,
                               width: 40,
                             ),
                           ],
                         ),
                       ),
-                    ),
-                    Text(
-                      "Codes with coffee",
-                      textAlign: TextAlign.center,
-                    ),
-                  ])),
+                      Text("Coffee and Tweet"),
+                    ]));
+              }),
             ),
             SizedBox(height: 12),
-            Container(
-                width: 500,
-                child: Stack(alignment: Alignment.center, children: <Widget>[
-                  Container(
-                    width: 450,
-                    padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
-                    color: Color.fromARGB(255, 23, 18, 18),
-                    child: Container(
-                      width: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(
-                            "assets/images/instagram.png",
-                            height: 40,
-                            width: 40,
+            GestureDetector(
+              onTap: () =>
+                  {_launchURL("https://www.linkedin.com/in/dcr-7978993d/")},
+              child: OnHover(builder: (isHovered) {
+                final color =
+                    isHovered ? Colors.grey : Color.fromARGB(255, 23, 18, 18);
+                return Container(
+                    width: 500,
+                    child:
+                        Stack(alignment: Alignment.center, children: <Widget>[
+                      Container(
+                        width: 450,
+                        padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
+                        color: color,
+                        child: Container(
+                          width: 250,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                "assets/images/linkedin.png",
+                                height: 40,
+                                width: 40,
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                  Text("A Public gallery")
-                ])),
-            SizedBox(height: 12),
-            Container(
-                width: 500,
-                child: Stack(alignment: Alignment.center, children: <Widget>[
-                  Container(
-                    width: 450,
-                    padding: EdgeInsets.fromLTRB(25, 10, 200, 10),
-                    color: Color.fromARGB(255, 23, 18, 18),
-                    child: Container(
-                      width: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(
-                            "assets/images/twitter.png",
-                            height: 40,
-                            width: 40,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Text("Coffee and Tweet"),
-                ])),
-            SizedBox(height: 12),
+                      Text("A cup with some professional talks"),
+                    ]));
+              }),
+            ),
+            SizedBox(height: 15),
             ElevatedButton(
               child: Text("Route"),
               style: TextButton.styleFrom(minimumSize: Size(100, 40)),
               onPressed: () {
                 Navigator.pushNamed(context, MyRoutes.homepageRoute);
               },
-            )
+            ),
+            SizedBox(height: 30),
+            Text('Made with 💕 and Flutter'),
+            SizedBox(height: 20),
           ]),
     ))));
   }
